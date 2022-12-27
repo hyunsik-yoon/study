@@ -1,2 +1,3 @@
 # study
-Personal repository for self-study
+
+This is Hyun Sik Yoon's Personal repository for self-study.
