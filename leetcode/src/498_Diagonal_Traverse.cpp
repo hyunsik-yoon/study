@@ -50,6 +50,9 @@ public:
     {
         if (last_point.up)
         {
+            // REMEBER Do not omit conditions that might not be needed.
+            //         Try to make perfect conditions.
+            //         Imperfect condition might end up with an unexpected runtime error.
             if (last_point.x < max_x && last_point.y == 0)
             {
                 return Point(last_point.x + 1, 0, false);
