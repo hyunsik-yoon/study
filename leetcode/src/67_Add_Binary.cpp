@@ -36,6 +36,16 @@ public:
             if (long_str[l] == '1') ++val;
             if (s >= l && short_str[l] == '1') ++val;
 
+            /*
+            REMEMBER
+
+            or the following is also good (https://leetcode.com/problems/add-binary/solutions/24482/short-and-clear-code-in-c-bit-operation-from-full-adder/)
+
+            (long_str[l] - '0') +
+            (s >= l ? short_str[l] - '0' : 0) +
+            carry
+            */
+
             l--;
 
             // when val == 0, 2
