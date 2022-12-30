@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# this repo specific
+cpp_template*.*
