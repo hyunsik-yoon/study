@@ -32,6 +32,8 @@ public:
 
     // REMEMBER
     // Approach 1. Better one. time complexity = O(n)
+    //
+    // For array or linked list problem, check if two-pointer approach can be used.
     ListNode* method_1_pass_two_pointers(ListNode* head, int n)
     {
         ListNode *to_tail = head;
