@@ -20,7 +20,10 @@ using namespace std;
 // https://leetcode.com/problems/number-of-islands/description/
 
 // REMEMBER
-//      an island in a 2x2 board can be considered as a graph
+//
+//      An island in a 2x2 board can be considered as a graph
+//      Approach in this solution is using BFS
+//      We can use DFS too.
 
 class Solution {
 public:
