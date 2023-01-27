@@ -30,6 +30,9 @@ public:
     int numIslands(vector<vector<char>>& grid)
     {
         // REMEMBER
+        //
+        //  how to use queue:
+        //
         //  q.push(1);       1
         //  q.push(2);       1, 2
         //  q.push(3);       1, 2, 3
