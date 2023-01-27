@@ -8,8 +8,6 @@
 
 using namespace std;
 
-// insert code here
-
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
@@ -56,6 +54,7 @@ public:
             *it_dst = *it_src;
         }
 
+        // REMEMBER std::copy(src.begin(), src.end(), dst.begin());
         std::copy(temp.begin(), temp.end(), nums.begin());
     }
 };

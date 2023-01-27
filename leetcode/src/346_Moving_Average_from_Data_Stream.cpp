@@ -20,9 +20,10 @@ public:
     double next(int val)
     {
         // REMEMBER
-        //      DO Not use static because
-        //      MovingAverage_CircularArray ma_1(); ma_1.next() ---> now count_called = 1
-        //      MovingAverage_CircularArray ma_2(); ma_2.next() ---> now count_called = 2   !!!!
+        //
+        // DO Not use 'static' variable because
+        //          MovingAverage_CircularArray ma_1(); ma_1.next() ---> now count_called = 1
+        //          MovingAverage_CircularArray ma_2(); ma_2.next() ---> now count_called = 2   !!!!
         // static int count_called = 0;
 
         count_called++;
@@ -69,6 +70,9 @@ public:
             //  q.front() is 1
             //  q.back()  is 3
             //  q.pop()   pops 1 (front)
+
+            // REMEMBER
+            //  window problem: consider using set, queue, stack...
 
             int old_val = _q.front();
             _q.pop();

@@ -58,7 +58,7 @@ public:
         // make answer from rowIndex = 2
         constexpr int init_val = 1;
 
-        // REMEMBER resizing with initial value
+        // REMEMBER resizing vector with initial value
         ans[0].resize(rowIndex + 1, init_val);
         ans[1].resize(rowIndex + 1, init_val);
 

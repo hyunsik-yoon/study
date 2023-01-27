@@ -36,7 +36,7 @@ public:
         // Method 2.
         // XOR
         // -> a⊕0=a
-        // -> a⊕a=0
+        // -> a⊕a=0     same value --> 0
         // -> a⊕b⊕a=(a⊕a)⊕b=0⊕b=b
 
         int ans = 0;

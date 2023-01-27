@@ -144,11 +144,16 @@ public:
 };
 
 // REMEMBER
+//
 // string to int
-//      int val = std::stoi(string{"123"})
+//      int val = std::stoi("123")
+// int to string
+//      string str = std::to_string(55)
+//
 // string to vector
 //      string s(vec.begin(), vec.end());
 // vector to string
 //      vector v(str.begin(), str.end());
+//
 // reversing a vector
 //      std::reverse(vec.begin(), vec.end())

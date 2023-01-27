@@ -29,7 +29,7 @@ public:
                 int candidate = s[k] - delta_to_a;
                 // REMEMBER
                 // number of alphabet is 26
-                // char range is [0, 127]
+                // 'char' type range is [0, 127]
 
                 /* REMEMBER
 

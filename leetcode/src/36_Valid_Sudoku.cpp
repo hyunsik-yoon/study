@@ -20,7 +20,7 @@ public:
 
          auto init_new_check = [&marker]() {
              // REMEMBER
-             // std::fill
+             // std::fill(vect.begin(), vect.end(), init_val);
              // or
              // fill_n(vect.begin(), count, init_val);
              std::fill(marker.begin(), marker.end(), false);

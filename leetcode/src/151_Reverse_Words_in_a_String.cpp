@@ -82,18 +82,18 @@ public:
         int i = 0;
         while(true)
         {
-            // REMEMBER with starting index to find
+            // REMEMBER string::find(substring, from_idx)
             int space_idx = s.find(" ", i);
             if (space_idx == i)
             {
                 i++;
                 continue;
             }
-            // REMEMBER
+            // REMEMBER if (string::npos == string::find(substring, from_idx))
             else if (space_idx == string::npos)
             {
                 if (s.length() - i != 0)
-                    // REMEMBER, with starting idx and length
+                    // REMEMBER, string::subst(idx, len)
                     tokens.emplace_back(s.substr(i, s.length() - i));
                 break;
             }
@@ -118,7 +118,7 @@ public:
 
         for (int t = tokens.size() - 1; t > 0; t--)
         {
-            // REMEMBER
+            // REMEMBER string::append(str)
             res.append(tokens[t]);
             res.append(" ");
         }

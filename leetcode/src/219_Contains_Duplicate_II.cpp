@@ -20,8 +20,6 @@ using namespace std;
 //     3. loop and set: inside loop, call set.contain          , where search takes O(1)
 
 // REMEMBER
-
-// REMEMBER
 //      it seems that C++ std lib does not implement BST. set or map instead.
 //         -> https://stackoverflow.com/questions/5085091/binary-search-tree-implementation-in-c-stl
 //
