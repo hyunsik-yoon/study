@@ -26,6 +26,10 @@ using namespace std;
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// REMEMBER
+//  preorder traversal : stack
+
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root)
