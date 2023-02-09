@@ -95,19 +95,24 @@ public:
 
         for (char ch: s)
         {
+            // REMEMBER
+            //      ascii 에서 0 부터 127 까지 훑어보면
+            //      숫자가 나오고 그 담에 대문자, 그 담에 소문자
             char alpha_diff = 'A' - 'a';
             if ('A' <= ch and ch <= 'Z')
             {
+                // REMEMBER
+                //      char 빼기 char 했더니 자꾸 int 라고 해서 다시 char로 바꾸었다.
                 const char lower_char = static_cast<char>(ch - alpha_diff);
                 converted.append({lower_char});
             }
             else if (('0' <= ch and ch <= '9') || ('a' <= ch and ch <= 'z'))
             {
+                // REMEMBER
+                //      ascii 에서 숫자 순서는 0, 1, 2.. 이다 (1, 2, .., 8, 9, 0 아님)
                 converted.append({ch});
             }
         }
-
-        cout << converted << endl;
 
         int len = converted.size();
         for (int k = 0; k < len/2; k++)
