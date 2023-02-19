@@ -1,93 +1,87 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <unordered_set>
-#include <vector>
-
-using namespace std;
-
-// ADD URL
-
-// Insert code
-
 // 200_Number_of_Islands
 
 // https://leetcode.com/problems/number-of-islands/description/
 
 // REMEMBER
-//
-//      An island in a 2x2 board can be considered as a graph
-//      Approach in this solution is using BFS
-//      We can use DFS too.
+//      an island in a 2x2 board can be considered as a graph
+
+struct Point
+{
+    int km = -1;
+    int kn = -1;
+};
 
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid)
     {
-        // REMEMBER
-        //
-        //  how to use queue:
-        //
-        //  q.push(1);       1
-        //  q.push(2);       1, 2
-        //  q.push(3);       1, 2, 3
-        //  f = q.front()    1
-        //  f = q.back()     3
-        //  q.pop()          2, 3
+        // 0 means water
+        // 1 means land (not visited)
+        // 2 means land (visited)
 
-        std::queue<Point> q;
+        auto should_visit = [&grid](const Point &p) {
+            return grid[p.km][p.kn] == '1';
+        };
+
+        auto set_visited = [&grid](const Point &p) {
+            assert(grid[p.km][p.kn] == '1');
+            grid[p.km][p.kn] = '2';
+        };
+
+        int m = grid.size();
+        int n = grid[0].size();
+
         int count = 0;
 
-        for (int y = 0; y < grid.size(); y++)
+        for (int km = 0; km < m; km++)
         {
-            for (int x = 0; x < grid[0].size(); x++)
+            for (int kn = 0; kn < n; kn++)
             {
-                if (grid[y][x] == '1')
+                if (! should_visit(Point{km, kn})) continue;
+
+                // start of new land
+                count++;
+
+                queue<Point> q;
+                Point start{km, kn};
+                set_visited(start);
+                q.push(start);
+
+                while (! q.empty())
                 {
-                    count++;
+                    Point root = q.front();
+                    q.pop();
 
-                    q.push(Point{.x = x, .y = y});
-                    grid[y][x] = VISITED;
-
-                    while (!q.empty())
+                    auto try_push = [&grid, &should_visit, &set_visited](queue<Point> &q, Point &p)
                     {
-                        Point &pt = q.front();
-                        q.pop();
+                        if (should_visit(p)) {
+                            set_visited(p);
+                            q.push(p);
+                        }
+                    };
 
-                        process_adjacent(grid, pt, q);
+                    if (root.km != 0) {
+                        Point up{root.km - 1, root.kn};
+                        try_push(q, up);
+                    }
+                    if (root.km != m - 1) {
+                        Point down{root.km + 1, root.kn};
+                        try_push(q, down);
+                    }
+                    if (root.kn != 0)
+                    {
+                        Point left{root.km, root.kn - 1};
+                        try_push(q, left);
+                    }
+                    if (root.kn != n - 1)
+                    {
+                        Point right{root.km, root.kn + 1};
+                        try_push(q, right);
                     }
                 }
             }
         }
+
         return count;
-    }
-
-private:
-    struct Point
-    {
-        int x, y;
-    };
-
-    static const char VISITED = '2';
-
-    void process_adjacent(vector<vector<char>>& grid, Point &pt, std::queue<Point> &q)
-    {
-        auto try_push = [&grid, &q](int x, int y) -> void {
-            if ((x >= 0 && y >= 0) && (x < grid[0].size() && y < grid.size()) && grid[y][x] == '1')
-            {
-                grid[y][x] = VISITED;
-                q.push(Point{.x = x, .y = y});
-            }
-        };
-
-        try_push(pt.x, pt.y - 1);
-        try_push(pt.x, pt.y + 1);
-        try_push(pt.x + 1, pt.y);
-        try_push(pt.x - 1, pt.y);
     }
 };
